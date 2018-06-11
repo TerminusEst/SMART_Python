@@ -46,6 +46,16 @@ class SunSpot:
         self.max_x = None
         self.max_y = None
 
+def datetime_from_json(data):
+    # convert timestring to datetime object
+
+    a = data['meta']['dateobs']
+    year = int(a[:4])
+    month = int(a[4:6])
+    day = int(a[6:8])
+    hour = int(a[9:11])
+    time1 = datetime.datetime(year, month, day, hour)
+    return time1
 
 def get_sunspot_data(yy, time1):
     master = []
